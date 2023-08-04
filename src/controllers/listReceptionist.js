@@ -1,20 +1,22 @@
 const express = require("express");
 const router = express.Router();
-const bloodModel = require("../models/dispatchblood");
+const nurseModel = require("../models/receptionist");
 const constants = require("../config/constants");
 const authenticate = require("../middleware/authentication")
 
 router.get("/", authenticate, async (req, res) => {
   try {
-    let data = await bloodModel.find();
-
+    let data = await nurseModel.find();
     data = data.map((item) => {
       return {
-        id:item.id,
-        name: item.name,
-        bloodgroup: item.bloodgroup,
-        noofbags:item.noofbags,
-        date: item.date,
+        id: item.id,
+        username:item.username,
+        email:item. email,
+        phone:item. phone,
+        address:item.address,
+        gender:item.gender,
+        DOB:item.DOB,
+        image: constants.imagePath + item.image,
       };
     });
 

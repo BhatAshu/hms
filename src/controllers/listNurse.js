@@ -1,20 +1,22 @@
 const express = require("express");
 const router = express.Router();
-const birthModel = require("../models/birth");
+const nurseModel = require("../models/nurse");
 const constants = require("../config/constants");
 const authenticate = require("../middleware/authentication")
 
 router.get("/", authenticate, async (req, res) => {
   try {
-    let data = await birthModel.find();
-
+    let data = await nurseModel.find();
     data = data.map((item) => {
       return {
-        id:item.id,
-        name: item.name,
-        birthtype: item.birthtype,
-        doctor:item.doctor,
-        date: item.date,
+        id: item.id,
+        username:item.username,
+        email:item. email,
+        phone:item. phone,
+        address:item.address,
+        gender:item.gender,
+        DOB:item.DOB,
+        image: constants.imagePath + item.image,
       };
     });
 

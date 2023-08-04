@@ -1,14 +1,15 @@
 const express = require("express");
 const router = express.Router();
-const userModel = require("../models/intern");
+const receptModel = require("../models/receptionist");
 const authenticate = require("../middleware/authentication");
+const { upload } = require("../middleware/upload");
 
-router.put("/:id", authenticate,  async (req, res) => {
+router.put("/:id", authenticate, upload.single("image"), async (req, res) => {
   try {
-    const {  name, email, phone,gender, dateofbirth, address,educationalinstitution,startdate,enddate,status } = req.body;
+    const { username, email, phone,address,gender, DOB} = req.body;
     const id = req.params.id;
 
-    if (!name || name == "") {
+    if (!username || username == "") {
       return res.status(201).send("Name is required");
     }
     if (!email || email == "") {
@@ -34,24 +35,26 @@ router.put("/:id", authenticate,  async (req, res) => {
     ) {
       return res.status(202).send("Phone Number is Inavalid!!");
     }
+    if(!req.file) {
+      return res.status(201).send("Image is required");
+    }
 
     const updatedData = {
-        name: name,
+        username: username,
         email: email,
         phone: phone,
-        gender: gender,
-        dateofbirth: dateofbirth,
         address:address,
-        educationalinstitution: educationalinstitution,
-        startdate: startdate,
-        enddate: enddate,
-        status: status,
+        gender:gender,
+        DOB:DOB,
     };
-    await userModel.findByIdAndUpdate(id, updatedData);
+    if(req.file){
+      updatedData.image=req.file.originalname
+    }
+    await receptModel.findByIdAndUpdate(id, updatedData);
     res.status(200).send(updatedData);
   } catch (error) {
-    return res.status(500).send(error.stack); 
-  } 
+    return res.status(500).send(error.stack); //if you put "error.stack" it will shows error with message on which line
+  } //instaed of "error.stack" one can use "error.message"
 });
 
 module.exports = router;

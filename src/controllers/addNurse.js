@@ -1,19 +1,21 @@
 const express = require("express");
 const router = express.Router();
 const bcrypt=require("bcrypt");
-const userModel = require("../models/intern");
+const nurseModel = require("../models/nurse");
+const docModel = require("../models/doc");
 const authenticate  = require("../middleware/authentication");
 const salt_round = 10;
+const { upload } = require("../middleware/upload");
 
 
-router.post("/",authenticate, async (req, res) => {
+router.post("/",authenticate,upload.single("image"), async (req, res) => {
     try {
-      const { name, email, phone,gender, dateofbirth, address,educationalinstitution,startdate,enddate,status } = req.body;
+      const { username, email, phone,address,gender, DOB,password } = req.body;
       // console.log(req.user);
-      if (req.user && req.user.role && req.user.role !== "Receptionist") {
+      if (req.user && req.user.role && req.user.role !== "Admin") {
         return res.send("Unauthorized user");
       }
-      if (!name || name == "") {
+      if (!username || username == "") {
      return res.status(201).send("Name is required");
       }
       if (!email || email == "") {
@@ -22,12 +24,23 @@ router.post("/",authenticate, async (req, res) => {
       if (!phone || phone == "") {
      return res.status(201).send("phone is required");
       }
-      const oldEmail = await userModel.findOne({ email: email });
+      if (!req.file) {
+     return res.status(201).send("image is required");
+      }
+      const oldEmail = await nurseModel.findOne({ email: email });
       if (oldEmail) {
      return res.status(202).send(" Email is already exist");
       }
-      const oldPhone = await userModel.findOne({ phone });
+      const oldPhone = await nurseModel.findOne({ phone });
       if (oldPhone) {
+     return res.status(202).send(" Phone is already exist");
+      }
+      const oldEmail1 = await docModel.findOne({ email: email });
+      if (oldEmail1) {
+     return res.status(202).send(" Email is already exist");
+      }
+      const oldPhone1 = await docModel.findOne({ phone });
+      if (oldPhone1) {
      return res.status(202).send(" Phone is already exist");
       }
 
@@ -50,17 +63,17 @@ router.post("/",authenticate, async (req, res) => {
       }
       
       console.log(req.file);
-      const data = await userModel.create({
-        name: name,
+
+    const encryptPassword = await bcrypt.hash(password, salt_round);
+      const data = await nurseModel.create({
+        username: username,
         email: email,
         phone: phone,
-        gender: gender,
-        dateofbirth: dateofbirth,
         address:address,
-        educationalinstitution: educationalinstitution,
-        startdate: startdate,
-        enddate: enddate,
-        status: status,
+        gender:gender,
+        DOB:DOB,
+        password: encryptPassword,
+        image: req.file.originalname,
       });
       return res.status(200).send(data);
     } catch (error) {

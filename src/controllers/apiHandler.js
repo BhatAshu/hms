@@ -31,72 +31,8 @@ router.use("/delete_patient", deletepatient);
 const updatepatient = require("./updatePatient");
 router.use("/update_patient", updatepatient);
 
-const addblood = require("./addbloodDonor");
-router.use("/add_blood", addblood);
-
-const viewblood = require("./listBloodDonor");
-router.use("/view_blood", viewblood);
-
-const updateblood = require("./updatebloodDonor");
-router.use("/update_blood", updateblood);
-
-const deleteblood = require("./deleteBloodDonor");
-router.use("/delete_blood", deleteblood);
-
-const dispatchblood = require("./addDispatchBlood");
-router.use("/add_disptach", dispatchblood);
-
-const listdispatchblood = require("./listDispatchblood");
-router.use("/list_dispatch", listdispatchblood);
-
-const updatedispatchblood = require("./updateDispatch");
-router.use("/update_dispatch", updatedispatchblood);
-
-const deletedispatch = require("./deleteDispatch");
-router.use("/delete_dispatch", deletedispatch);
-
-const bloodbank = require("./bloodBank");
-router.use("/blood_bank", bloodbank);
-
-const addbirth = require("./addBirth");
-router.use("/add_birth", addbirth);
-
-const listbirth = require("./listBirth");
-router.use("/list_birth", listbirth);
-
-const updatebirth = require("./updateBirth");
-router.use("/update_birth", updatebirth);
-
-const deletebirth = require("./deleteBirth");
-router.use("/delete_birth", deletebirth);
-
-const adddeath = require("./addDeath");
-router.use("/add_death", adddeath);
-
-const listdeath = require("./listDeath");
-router.use("/list_death", listdeath);
-
-const updatedeath = require("./updateDeath");
-router.use("/update_death", updatedeath);
-
-const deletedeath = require("./deleteDeath");
-router.use("/delete_death", deletedeath);
-
 const resetpass = require("./resetPassword");
 router.use("/reset_password", resetpass);
-
-const addintern = require("./addIntern");
-router.use("/add_intern", addintern);
-
-const listintern = require("./listIntern");
-router.use("/list_intern", listintern);
-
-const updateintern = require("./updateIntern");
-router.use("/update_intern", updateintern);
-
-const deleteintern = require("./deleteIntern");
-router.use("/delete_intern", deleteintern);
-
 
 const listdoctor = require("./listDoctor");
 router.use("/list_doctor", listdoctor);
@@ -109,6 +45,33 @@ router.use("/update_doctor", updatedoctor);
 
 const deletedoctor = require("./deleteDoctor");
 router.use("/delete_doctor", deletedoctor);
+
+const addnurse = require("./addNurse");
+router.use("/add_nurse", addnurse);
+
+const listnurse = require("./listNurse");
+router.use("/list_nurse", listnurse);
+
+const updatenurse = require("./updateNurse");
+router.use("/update_nurse", updatenurse);
+
+const deletenurse = require("./deleteNurse");
+router.use("/delete_nurse", deletenurse);
+
+const addreceptionist = require("./addReceptionist");
+router.use("/add_receptionist", addreceptionist);
+
+const listreceptionist = require("./listReceptionist");
+router.use("/list_receptionist", listreceptionist);
+
+const updaterecept = require("./updateReceptionist");
+router.use("/update_recept", updaterecept);
+
+const deleterecept = require("./deleteRecept");
+router.use("/delete_recept", deleterecept);
+
+const logdoctor = require("./loginDoctor");
+router.use("/login_doctor", logdoctor);
 
 
 module.exports = router;

@@ -1,6 +1,7 @@
-const { default: mongoose } = require("mongoose");
-const InternSchema = mongoose.Schema({
-  name: {
+const mongoose = require("mongoose");
+
+const nurseSchema = mongoose.Schema({
+  username: {
     type: String,
     required: true,
   },
@@ -14,33 +15,27 @@ const InternSchema = mongoose.Schema({
     required: true,
     unique: true,
   },
-  gender: {
-    type: String,
-    required: true,
-  },
-  dateofbirth: {
-    type: String,
-    required: true,
-  },
   address: {
     type: String,
     required: true,
   },
-  educationalinstitution: {
+  gender: {
     type: String,
     required: true,
   },
-  startdate: {
+  DOB: {
     type: String,
     required: true,
   },
-  enddate: {
+  password: {
     type: String,
     required: true,
   },
-  status: {
+  image: {
+    data: Buffer,
     type: String,
-    required: true,
+    required: false,
   },
 });
-module.exports = mongoose.model("interns", InternSchema);
+
+module.exports = mongoose.model("nurses", nurseSchema);
