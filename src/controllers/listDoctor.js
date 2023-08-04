@@ -1,22 +1,23 @@
 const express = require("express");
 const router = express.Router();
-const userModel = require("../models/login");
+const docModel = require("../models/doc");
 const constants = require("../config/constants");
 const authenticate = require("../middleware/authentication")
 
 router.get("/", authenticate, async (req, res) => {
   try {
-    // Add the condition to fetch only users with role "Doctor"
-    let data = await userModel.find({ role: "Doctor" });
-
+    let data = await docModel.find();
     data = data.map((item) => {
       return {
         id: item.id,
-        username: item.username,
-        email: item.email,
-        phone: item.phone,
-        address: item.address,
-        role: item.role,
+        username:item.username,
+        email:item. email,
+        phone:item. phone,
+        address:item.address,
+        gender:item.gender,
+        DOB:item.DOB,
+        specialist:item.specialist,
+        isAvailable:item.isAvailable,
         image: constants.imagePath + item.image,
       };
     });

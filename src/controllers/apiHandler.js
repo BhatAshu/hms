@@ -101,5 +101,14 @@ router.use("/delete_intern", deleteintern);
 const listdoctor = require("./listDoctor");
 router.use("/list_doctor", listdoctor);
 
+const adddoctor = require("./addDoctor");
+router.use("/add_doctor", adddoctor);
+
+const updatedoctor = require("./updateDoctor");
+router.use("/update_doctor", updatedoctor);
+
+const deletedoctor = require("./deleteDoctor");
+router.use("/delete_doctor", deletedoctor);
+
 
 module.exports = router;
