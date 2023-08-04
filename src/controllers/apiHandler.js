@@ -37,41 +37,8 @@ router.use("/reset_password", resetpass);
 const listdoctor = require("./listDoctor");
 router.use("/list_doctor", listdoctor);
 
-const adddoctor = require("./addDoctor");
-router.use("/add_doctor", adddoctor);
-
-const updatedoctor = require("./updateDoctor");
-router.use("/update_doctor", updatedoctor);
-
-const deletedoctor = require("./deleteDoctor");
-router.use("/delete_doctor", deletedoctor);
-
-const addnurse = require("./addNurse");
-router.use("/add_nurse", addnurse);
-
-const listnurse = require("./listNurse");
-router.use("/list_nurse", listnurse);
-
-const updatenurse = require("./updateNurse");
-router.use("/update_nurse", updatenurse);
-
-const deletenurse = require("./deleteNurse");
-router.use("/delete_nurse", deletenurse);
-
-const addreceptionist = require("./addReceptionist");
-router.use("/add_receptionist", addreceptionist);
-
-const listreceptionist = require("./listReceptionist");
-router.use("/list_receptionist", listreceptionist);
-
-const updaterecept = require("./updateReceptionist");
-router.use("/update_recept", updaterecept);
-
-const deleterecept = require("./deleteRecept");
-router.use("/delete_recept", deleterecept);
-
-const logdoctor = require("./loginDoctor");
-router.use("/login_doctor", logdoctor);
+const addblood = require("./addbloodDonor");
+router.use("/add_blood", addblood);
 
 
 module.exports = router;
