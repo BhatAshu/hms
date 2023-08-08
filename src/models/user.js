@@ -1,8 +1,13 @@
-const {default:mongoose} = require("mongoose");
-const account = mongoose.Schema({
-  name: {
+const mongoose = require("mongoose");
+const userModel = mongoose.Schema({
+  firstname: {
     type: String,
-    required: true,
+  },
+  lastname: {
+    type: String,
+  },
+  username: {
+    type: String,
   },
   email: {
     type: String,
@@ -10,27 +15,22 @@ const account = mongoose.Schema({
   },
   phone: {
     type: String,
-    required: true,
     unique: true,
   },
   gender: {
     type: String,
-    required: true,
   },
   age: {
     type: String,
-    required: true,
   },
   chiefcomplaint: {
     type: String,
-    required: true,
   },
   bloodgroup: {
     type: String,
   },
   timeofregistration: {
     type: String,
-    required: true,
   },
   sugarlevel: {
     type: String,
@@ -43,20 +43,26 @@ const account = mongoose.Schema({
   },
   address: {
     type: String,
-    required: true,
   },
   doctor: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Doctor",
-    // required: true,
   },
-  doctorName:{
-    type:String,
-    // required:true,
+  doctorName: {
+    type: String,
+  },
+  password: {
+    type: String,
   },
   patientId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Patient",
   },
+  status:{
+    type:String,
+  },
+  prescribe:{
+    type:String,
+  },
 });
-module.exports = mongoose.model("Patient", account);
+module.exports = mongoose.model("user", userModel);

@@ -8,13 +8,11 @@ const authenticate = require("../middleware/authentication")
 router.get("/", authenticate, async (req, res) => {
   try {
     let data = await userModel.find();
-
-
-
     data = data.map((item) => {
       return {
         id:item.id,
-        name: item.name,
+        firstname: item.firstname,
+        lastname: item.lastname,
         email: item.email,
         phone: item.phone,
         gender: item.gender,
@@ -28,6 +26,8 @@ router.get("/", authenticate, async (req, res) => {
         message:item.message,
         doctorId: item.doctor ? item.doctor._id : null,
         doctorName: item.doctorName,
+        status: item.status,
+        prescribe: item.prescribe,
       };
     });
     return res.status(200).send(data);
