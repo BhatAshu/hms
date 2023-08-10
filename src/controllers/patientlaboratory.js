@@ -1,48 +1,3 @@
-// const express = require('express');
-// const patientModel = require('../models/user');
-// const authenticate = require("../middleware/authentication");
-
-// const router = express.Router();
-
-// router.put('/:id', authenticate, async (req, res) => {
-//     try {
-//         const id = req.params.id;
-//         const {
-//           name,
-//           age,
-//           chiefcomplaint,
-//           bloodgroup,
-//           sugarlevel,
-//           bloodpressure,
-//           message,
-//         } = req.body; 
-
-        
-  
-//         const updatedData = {
-//             id: id,
-//             name: name,
-//             age: age,
-//             chiefcomplaint: chiefcomplaint,
-//             bloodgroup: bloodgroup,
-//             sugarlevel: sugarlevel,
-//             bloodpressure: bloodpressure,
-//             message: message,
-//           };
-
-//           await patientModel.findByIdAndUpdate(id, updatedData);
-//           const data = await patientModel.findById(id);
-
-          
-//           return res.status(200).send(data);
-//         } catch (error) {
-//           return res.status(500).send(error.stack);
-//         }
-//       });
-  
-
-// module.exports = router;
-
 const express = require('express');
 const patientModel = require('../models/user');
 const authenticate = require('../middleware/authentication');
@@ -71,7 +26,8 @@ router.put('/:id', authenticate, async (req, res) => {
   try {
     const id = req.params.id;
     const {
-      name,
+      firstname,
+      email,
       age,
       chiefcomplaint,
       bloodgroup,
@@ -82,7 +38,8 @@ router.put('/:id', authenticate, async (req, res) => {
 
     const updatedData = {
       id: id,
-      name: name,
+      firstname: firstname,
+      email: email,
       age: age,
       chiefcomplaint: chiefcomplaint,
       bloodgroup: bloodgroup,

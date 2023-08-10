@@ -82,5 +82,8 @@ router.use("/delete_dispatch",deletedispatch);
 const bloodbank=require("./bloodBank");
 router.use("/blood_bank",bloodbank);
 
+const reportgenerate=require("./report");
+router.use("/report_generate",reportgenerate);
+
 
 module.exports = router;
