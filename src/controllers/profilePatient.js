@@ -19,12 +19,12 @@ router.get("/:id", async (req, res) => {
       phone: patient.phone,
       gender: patient.gender,
       age: patient.age,
-      chiefcomplaint: patient.chiefcomplaint,
+      // chiefcomplaint: patient.chiefcomplaint,
       bloodgroup: patient.bloodgroup,
-      timeofregistration: patient.timeofregistration,
-      sugarlevel: patient.sugarlevel,
-      bloodpressure: patient.bloodpressure,
-      message: patient.message,
+      // timeofregistration: patient.timeofregistration,
+      // sugarlevel: patient.sugarlevel,
+      // bloodpressure: patient.bloodpressure,
+      // message: patient.message,
       address: patient.address,
     };
 

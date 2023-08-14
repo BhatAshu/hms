@@ -61,6 +61,9 @@ router.use("/sign_up",signup)
 const loginuser=require("./loginUser");
 router.use("/log_user",loginuser);
 
+const patlogin=require("./patientLogin");
+router.use("/patient_login",patlogin);
+
 const senduserdetails=require("./patientlaboratory");
 router.use("/send_lab",senduserdetails);
 
@@ -85,5 +88,25 @@ router.use("/blood_bank",bloodbank);
 const reportgenerate=require("./report");
 router.use("/report_generate",reportgenerate);
 
+const patform=require("./patientForm");
+router.use("/patient_form",patform);
+
+const listuserform=require("./listpatform");
+router.use("/listpat_form",listuserform);
+
+const listbloodtestlab=require("./listBloodtest");
+router.use("/list_bloodtestlab",listbloodtestlab);
+
+const addbloodtest=require("./addBloodtest");
+router.use("/add_bloodtest",addbloodtest);
+
+const bloodtestreport=require("./listbloodtestpdf");
+router.use("/bloodtest_report",bloodtestreport);
+
+const addurinetest=require("./addUrineTest");
+router.use("/add_urintest",addurinetest);
+
+const listurinetestpdf=require("./listUrineTestpdf");
+router.use("/urinetest_report",listurinetestpdf);
 
 module.exports = router;

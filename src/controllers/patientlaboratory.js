@@ -1,5 +1,5 @@
 const express = require('express');
-const patientModel = require('../models/user');
+const patientModel = require('../models/patient');
 const authenticate = require('../middleware/authentication');
 const WebSocket = require('ws');
 
@@ -26,26 +26,26 @@ router.put('/:id', authenticate, async (req, res) => {
   try {
     const id = req.params.id;
     const {
-      firstname,
+      username,
       email,
       age,
       chiefcomplaint,
       bloodgroup,
       sugarlevel,
       bloodpressure,
-      message,
+      testtype,
     } = req.body;
 
     const updatedData = {
       id: id,
-      firstname: firstname,
+      username: username,
       email: email,
       age: age,
       chiefcomplaint: chiefcomplaint,
       bloodgroup: bloodgroup,
       sugarlevel: sugarlevel,
       bloodpressure: bloodpressure,
-      message: message,
+      testtype: testtype,
     };
 
     await patientModel.findByIdAndUpdate(id, updatedData);
@@ -63,7 +63,7 @@ router.put('/:id', authenticate, async (req, res) => {
       }
     });
 
-    return res.status(200).send(data);
+    return res.status(200).send(updatedData);
   } catch (error) {
     return res.status(500).send(error.stack);
   }

@@ -64,5 +64,8 @@ const userModel = mongoose.Schema({
   prescribe:{
     type:String,
   },
+  testtype:{
+    type:String,
+  },
 });
 module.exports = mongoose.model("user", userModel);
