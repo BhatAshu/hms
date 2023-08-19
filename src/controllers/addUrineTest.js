@@ -70,7 +70,7 @@ router.put("/:id", async (req, res) => {
     doc.moveDown(1.5);
 
     // Blood Test Results section
-    const titleText = "Urine Test Results:";
+const titleText = "Urine Test Results:";
 const titleWidth = doc.widthOfString(titleText);
 const titleX = (doc.page.width - titleWidth) / 2;
 doc.font("Helvetica-Bold").fontSize(14).text(titleText, titleX, doc.y).moveDown(1.5);

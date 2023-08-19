@@ -106,7 +106,31 @@ router.use("/bloodtest_report",bloodtestreport);
 const addurinetest=require("./addUrineTest");
 router.use("/add_urintest",addurinetest);
 
+const listurinetest=require("./listUrineTest");
+router.use("/list_urinetest",listurinetest);
+
 const listurinetestpdf=require("./listUrineTestpdf");
 router.use("/urinetest_report",listurinetestpdf);
+
+const addsugartest=require("./addSugarLevelTest");
+router.use("/add_sugartest",addsugartest);
+
+const listsugartest=require("./listSugartest");
+router.use("/list_sugartest",listsugartest);
+
+const listsugartestpdf=require("./listSugartestreport");
+router.use("/sugartest_report",listsugartestpdf);
+
+const addBPtest=require("./addBPTest");
+router.use("/add_bptest",addBPtest);
+
+const listbptest=require("./listBPtest");
+router.use("/list_BPtest",listbptest);
+
+const listbptestpdf=require("./listBPReport");
+router.use("/bptest_report",listbptestpdf);
+
+const searchpatient=require("./searchPatient");
+router.use("/search_patient",searchpatient);
 
 module.exports = router;

@@ -2,6 +2,12 @@ const { default: mongoose } = require("mongoose");
 const { Router } = require("express");
 
 const Patients = mongoose.Schema({
+  firstname: {
+    type: String,
+  },
+  lastname: {
+    type: String,
+  },
   username: {
     type: String,
   },
@@ -19,8 +25,8 @@ const Patients = mongoose.Schema({
   age: {
     type: String,
   },
-  chiefcomplaint: {
-    type: String,
+  DOB:{
+    type:String,
   },
   bloodgroup: {
     type: String,
@@ -54,10 +60,22 @@ const Patients = mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "Patient",
   },
-  status: {
+  status:{
+    type:String,
+  },
+  prescribe:{
+    type:String,
+  },
+  chiefcomplaint: {
     type: String,
   },
-  prescribe: {
+  bloodgroup: {
+    type: String,
+  },
+  sugarlevel: {
+    type: String,
+  },
+  bloodpressure: {
     type: String,
   },
   testtype: {
@@ -67,45 +85,46 @@ const Patients = mongoose.Schema({
     type: String,
   },
   hemoglobin: {
-    type: Number,
+    type: String,
   },
   whiteBloodCellCount: {
-    type: Number,
+    type: String,
   },
   plateletCount: {
-    type: Number,
+    type: String,
   },
   redBloodCellCount: {
-    type: Number,
+    type: String,
   },
   hematocrit: {
-    type: Number,
+    type: String,
   },
   meanCorpuscularVolume: {
-    type: Number,
+    type: String,
   },
   meanCorpuscularHemoglobin: {
-    type: Number,
+    type: String,
   },
   meanCorpuscularHemoglobinConcentration: {
-    type: Number,
+    type: String,
   },
   whiteBloodCellDifferential: {
     neutrophils: {
-      type: Number,
+      type: String,
     },
     lymphocytes: {
-      type: Number,
+      type: String,
     },
     monocytes: {
-      type: Number,
+      type: String,
     },
     eosinophils: {
-      type: Number,
+      type: String,
     },
     basophils: {
-      type: Number,
+      type: String,
     },
+  },
     color: {
       type: String,
     },
@@ -113,10 +132,10 @@ const Patients = mongoose.Schema({
       type: String,
     },
     pHLevel: {
-      type: Number,
+      type: String,
     },
     specificGravity: {
-      type: Number,
+      type: String,
     },
     protein: {
       type: String,
@@ -143,45 +162,44 @@ const Patients = mongoose.Schema({
       type: String,
     },
     fastingBloodSugar: {
-      type: Number,
+      type: String,
     },
     postPrandialBloodSugar: {
-      type: Number,
+      type: String,
     },
     randomBloodSugar: {
-      type: Number,
+      type: String,
     },
     hba1c: {
-      type: Number,
+      type: String,
     },
     oralGlucoseToleranceTest: {
-      type: Number,
+      type: String,
     },
     fructosamine: {
-      type: Number,
+      type: String,
     },
     cPeptideTest: {
-      type: Number,
+      type: String,
     },
     insulinLevel: {
-      type: Number,
+      type: String,
     },
     urineKetones: {
       type: String,
     },
 
     systolicPressure: {
-      type: Number,
+      type: String,
     },
     diastolicPressure: {
-      type: Number,
+      type: String,
     },
     meanArterialPressure: {
-      type: Number,
+      type: String,
     },
     pulsePressure: {
-      type: Number,
+      type: String,
     },
-  },
 });
 module.exports = mongoose.model("patients", Patients);

@@ -7,33 +7,24 @@ router.put("/:id", async (req, res) => {
   try {
     const id = req.params.id;
     const {
-      username,
+      firstname,
       bloodgroup,
       collecteddate,
-      hemoglobin,
-      whiteBloodCellCount,
-      plateletCount,
-      redBloodCellCount,
-      hematocrit,
-      meanCorpuscularVolume,
-      meanCorpuscularHemoglobin,
-      meanCorpuscularHemoglobinConcentration,
+      systolicPressure,
+      diastolicPressure,
+      meanArterialPressure,
+      pulsePressure,
       // Add other fields you want to update here
     } = req.body;
 
     const updatedData = {
-      username: username,
+      firstname: firstname,
       bloodgroup: bloodgroup,
-      collecteddate: collecteddate,
-      hemoglobin: hemoglobin,
-      whiteBloodCellCount: whiteBloodCellCount,
-      plateletCount: plateletCount,
-      redBloodCellCount: redBloodCellCount,
-      hematocrit: hematocrit,
-      meanCorpuscularVolume: meanCorpuscularVolume,
-      meanCorpuscularHemoglobin: meanCorpuscularHemoglobin,
-      meanCorpuscularHemoglobinConcentration: meanCorpuscularHemoglobinConcentration,
-      // Add other fields you want to update here
+      collecteddate:collecteddate,
+      systolicPressure: systolicPressure,
+      diastolicPressure: diastolicPressure,
+      meanArterialPressure: meanArterialPressure,
+      pulsePressure: pulsePressure,
     };
 
     await userModel.findByIdAndUpdate(id, updatedData);
@@ -45,11 +36,11 @@ router.put("/:id", async (req, res) => {
     doc.rect(0, 0, doc.page.width, doc.page.height).stroke();
 
     // Title
-    doc.font("Helvetica-Bold").fontSize(16).text(`Blood Test Report`, { align: "center" });
+    doc.font("Helvetica-Bold").fontSize(16).text(`Blood Pressure Test Report`, { align: "center" });
     doc.moveDown(1.5);
     // Patient Information
     doc.font("Helvetica").fontSize(12);
-    doc.text(`Patient Name: ${username}`);
+    doc.text(`Patient Name: ${firstname}`);
     doc.text(`Blood Group: ${bloodgroup}`);
    
     const collectedDateText = `Collected Date: ${collecteddate}`;
@@ -62,7 +53,7 @@ router.put("/:id", async (req, res) => {
     doc.moveDown(1.5);
 
     // Blood Test Results section
-const titleText = "Blood Test Results:";
+const titleText = "Blood Pressure Test Results:";
 const titleWidth = doc.widthOfString(titleText);
 const titleX = (doc.page.width - titleWidth) / 2;
 doc.font("Helvetica-Bold").fontSize(14).text(titleText, titleX, doc.y).moveDown(1.5);
@@ -70,14 +61,10 @@ doc.font("Helvetica-Bold").fontSize(14).text(titleText, titleX, doc.y).moveDown(
     // Define table headers
     const tableHeaders = ["Test", "Result"];
     const tableData = [
-      ["Hemoglobin", hemoglobin],
-      ["White Blood Cell Count", whiteBloodCellCount],
-      ["Platelet Count", plateletCount],
-      ["Red Blood Cell Count", redBloodCellCount],
-      ["Hematocrit", hematocrit],
-      ["Mean Corpuscular Volume", meanCorpuscularVolume],
-      ["Mean Corpuscular Hemoglobin", meanCorpuscularHemoglobin],
-      ["Mean Corpuscular Hb Concentration", meanCorpuscularHemoglobinConcentration],
+      ["SystolicPressure", systolicPressure],
+      ["DiastolicPressure", diastolicPressure],
+      ["MeanArterialPressure", meanArterialPressure],
+      ["PulsePressure", pulsePressure],
       // Add more blood test results fields here
     ];
 

@@ -9,7 +9,6 @@ router.get("/:id", async (req, res) => {
   try {
     const id = req.params.id;
     const patient = await userModel.findById(id);
-
     const doc = new PDFDocument();
 
     // Page border
@@ -56,7 +55,7 @@ doc.moveDown(1);
     const titleX = (doc.page.width - titleWidth) / 2;
     doc.font("Helvetica-Bold").fontSize(14).text(titleText, titleX, doc.y).moveDown(1);
 
-    console.log(patient); 
+  
 
     const tableHeaders = ["Test", "Result"];
         const tableData = [
@@ -73,7 +72,7 @@ doc.moveDown(1);
           ["Nitrite", patient.nitrite],
           ["MicroscopicExamination", patient.microscopicExamination],
         ];
-
+        console.log("Appearance Value:", patient.appearance);
         const columnWidth = doc.page.width / tableHeaders.length;
             const startX = 50; // Starting X position
             const startY = doc.y;

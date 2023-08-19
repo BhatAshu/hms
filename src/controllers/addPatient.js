@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");
-const userModel = require("../models/user");
+const userModel = require("../models/patient");
 const docModel = require("../models/login");
 const authenticate = require("../middleware/authentication");
 // const { upload } = require("../middleware/upload");

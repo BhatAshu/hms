@@ -28,7 +28,7 @@ router.get("/:id", async (req, res) => {
 
     doc.moveDown(2.5); 
     // Blood Test Report title
-const titleText1 = "Blood Test Report";
+const titleText1 = "Blood Pressure Report";
 const titleWidth1 = doc.widthOfString(titleText1);
 const titleX1 = (doc.page.width - titleWidth1) / 2; // Calculate the centered X position
 doc.font("Helvetica-Bold").fontSize(15).text(titleText1, titleX1, doc.y);
@@ -50,22 +50,17 @@ doc.moveDown(1);
 
     // Blood Test Results section
     doc.moveDown(1); // Add spacing
-    const titleText = "Blood Test Results:";
+    const titleText = "Blood Pressure Results:";
     const titleWidth = doc.widthOfString(titleText);
     const titleX = (doc.page.width - titleWidth) / 2;
     doc.font("Helvetica-Bold").fontSize(14).text(titleText, titleX, doc.y).moveDown(1);
 
     const tableHeaders = ["Test", "Result"];
         const tableData = [
-          ["Hemoglobin", patient.hemoglobin],
-          ["White Blood Cell Count", patient.whiteBloodCellCount],
-          ["Platelet Count", patient.plateletCount],
-          ["Red Blood Cell Count", patient.redBloodCellCount],
-          ["Hematocrit", patient.hematocrit],
-          ["Mean Corpuscular Volume", patient.meanCorpuscularVolume],
-          ["Mean Corpuscular Hemoglobin", patient.meanCorpuscularHemoglobin],
-          ["Mean Corpuscular Hb Concentration", patient.meanCorpuscularHemoglobinConcentration],
-          // Add more blood test results fields here
+          ["systolicPressure", patient.systolicPressure],
+          ["DiastolicPressure", patient.diastolicPressure],
+          ["MeanArterialPressure", patient.meanArterialPressure],
+          ["PulsePressure", patient.pulsePressure],
         ];
 
         const columnWidth = doc.page.width / tableHeaders.length;

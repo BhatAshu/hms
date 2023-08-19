@@ -14,6 +14,7 @@ router.get("/", authenticate, async (req, res) => {
         username: item.username,
         email: item.email,
         phone: item.phone,
+        specialist: item.specialist,
         address:item.address,
         role: item.role,
         image: constants.imagePath +item.image,

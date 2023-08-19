@@ -10,14 +10,15 @@ router.put("/:id", async (req, res) => {
       username,
       bloodgroup,
       collecteddate,
-      hemoglobin,
-      whiteBloodCellCount,
-      plateletCount,
-      redBloodCellCount,
-      hematocrit,
-      meanCorpuscularVolume,
-      meanCorpuscularHemoglobin,
-      meanCorpuscularHemoglobinConcentration,
+      fastingBloodSugar,
+      postPrandialBloodSugar,
+      randomBloodSugar,
+      hba1c,
+      oralGlucoseToleranceTest,
+      fructosamine,
+      cPeptideTest,
+      insulinLevel,
+      urineKetones,
       // Add other fields you want to update here
     } = req.body;
 
@@ -25,14 +26,15 @@ router.put("/:id", async (req, res) => {
       username: username,
       bloodgroup: bloodgroup,
       collecteddate: collecteddate,
-      hemoglobin: hemoglobin,
-      whiteBloodCellCount: whiteBloodCellCount,
-      plateletCount: plateletCount,
-      redBloodCellCount: redBloodCellCount,
-      hematocrit: hematocrit,
-      meanCorpuscularVolume: meanCorpuscularVolume,
-      meanCorpuscularHemoglobin: meanCorpuscularHemoglobin,
-      meanCorpuscularHemoglobinConcentration: meanCorpuscularHemoglobinConcentration,
+      fastingBloodSugar: fastingBloodSugar,
+      postPrandialBloodSugar: postPrandialBloodSugar,
+      randomBloodSugar: randomBloodSugar,
+      hba1c: hba1c,
+      oralGlucoseToleranceTest: oralGlucoseToleranceTest,
+      fructosamine: fructosamine,
+      cPeptideTest: cPeptideTest,
+      insulinLevel: insulinLevel,
+      urineKetones: urineKetones,
       // Add other fields you want to update here
     };
 
@@ -45,7 +47,7 @@ router.put("/:id", async (req, res) => {
     doc.rect(0, 0, doc.page.width, doc.page.height).stroke();
 
     // Title
-    doc.font("Helvetica-Bold").fontSize(16).text(`Blood Test Report`, { align: "center" });
+    doc.font("Helvetica-Bold").fontSize(16).text(`Sugar Level Test Report`, { align: "center" });
     doc.moveDown(1.5);
     // Patient Information
     doc.font("Helvetica").fontSize(12);
@@ -62,7 +64,7 @@ router.put("/:id", async (req, res) => {
     doc.moveDown(1.5);
 
     // Blood Test Results section
-const titleText = "Blood Test Results:";
+const titleText = "Sugar Level Test Results:";
 const titleWidth = doc.widthOfString(titleText);
 const titleX = (doc.page.width - titleWidth) / 2;
 doc.font("Helvetica-Bold").fontSize(14).text(titleText, titleX, doc.y).moveDown(1.5);
@@ -70,14 +72,15 @@ doc.font("Helvetica-Bold").fontSize(14).text(titleText, titleX, doc.y).moveDown(
     // Define table headers
     const tableHeaders = ["Test", "Result"];
     const tableData = [
-      ["Hemoglobin", hemoglobin],
-      ["White Blood Cell Count", whiteBloodCellCount],
-      ["Platelet Count", plateletCount],
-      ["Red Blood Cell Count", redBloodCellCount],
-      ["Hematocrit", hematocrit],
-      ["Mean Corpuscular Volume", meanCorpuscularVolume],
-      ["Mean Corpuscular Hemoglobin", meanCorpuscularHemoglobin],
-      ["Mean Corpuscular Hb Concentration", meanCorpuscularHemoglobinConcentration],
+      ["FastingBloodSugar", fastingBloodSugar],
+      ["PostPrandialBloodSugar", postPrandialBloodSugar],
+      ["RandomBloodSugar", randomBloodSugar],
+      ["Hba1c", hba1c],
+      ["OralGlucoseToleranceTest", oralGlucoseToleranceTest],
+      ["Fructosamine", fructosamine],
+      ["CPeptideTest", cPeptideTest],
+      ["InsulinLevel", insulinLevel],
+      ["UrineKetones", urineKetones],
       // Add more blood test results fields here
     ];
 
