@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const userModel = require("../models/patient");
+const userModel = require("../models/user");
 const docModel = require("../models/login");
 const constants = require("../config/constants");
 const authenticate = require("../middleware/authentication")
@@ -11,8 +11,7 @@ router.get("/", authenticate, async (req, res) => {
     data = data.map((item) => {
       return {
         id:item.id,
-        firstname: item.firstname,
-        lastname: item.lastname,
+        username: item.username,
         email: item.email,
         phone: item.phone,
         gender: item.gender,

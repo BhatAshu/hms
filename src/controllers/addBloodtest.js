@@ -18,7 +18,6 @@ router.put("/:id", async (req, res) => {
       meanCorpuscularVolume,
       meanCorpuscularHemoglobin,
       meanCorpuscularHemoglobinConcentration,
-      // Add other fields you want to update here
     } = req.body;
 
     const updatedData = {

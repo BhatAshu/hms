@@ -7,6 +7,9 @@ router.use("/login_admin", loginAdmin);
 const loginstaff = require("./addStaff");
 router.use("/add_staff", loginstaff);
 
+const adddoctor = require("./addDoctor");
+router.use("/add_doctor", adddoctor);
+
 const addDoctor = require("./listUser");
 router.use("/viewuser", addDoctor);
 
@@ -132,5 +135,24 @@ router.use("/bptest_report",listbptestpdf);
 
 const searchpatient=require("./searchPatient");
 router.use("/search_patient",searchpatient);
+
+const upadtepatform=require("./updatePatientForm");
+router.use("/update_patform",upadtepatform);
+
+const listgeneral=require("./listGeneral");
+router.use("/list_general",listgeneral);
+
+const listpediatrics=require("./listPediatrics");
+router.use("/list_pediatrics",listpediatrics);
+
+const listorthopedics=require("./listOrthopedics");
+router.use("/list_orthopedics",listorthopedics);
+
+const listdermatology=require("./listDermatology");
+router.use("/list_dermatology",listdermatology);
+
+const reporttracking=require("./historytracking");
+router.use("/report_tracking",reporttracking);
+
 
 module.exports = router;

@@ -25,10 +25,13 @@ const Patients = mongoose.Schema({
   age: {
     type: String,
   },
-  DOB:{
-    type:String,
+  dateofbirth: {
+    type: String,
   },
   bloodgroup: {
+    type: String,
+  },
+  prescribe: {
     type: String,
   },
   timeofregistration: {
@@ -60,11 +63,14 @@ const Patients = mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "Patient",
   },
-  status:{
-    type:String,
+  status: {
+    type: String,
   },
-  prescribe:{
-    type:String,
+  description: {
+    type: String,
+  },
+  prescribe: {
+    type: String,
   },
   chiefcomplaint: {
     type: String,
@@ -79,6 +85,12 @@ const Patients = mongoose.Schema({
     type: String,
   },
   testtype: {
+    type: String,
+  },
+  date: {
+    type: String,
+  },
+  department: {
     type: String,
   },
   collecteddate: {
@@ -125,81 +137,81 @@ const Patients = mongoose.Schema({
       type: String,
     },
   },
-    color: {
-      type: String,
-    },
-    appearance: {
-      type: String,
-    },
-    pHLevel: {
-      type: String,
-    },
-    specificGravity: {
-      type: String,
-    },
-    protein: {
-      type: String,
-    },
-    glucose: {
-      type: String,
-    },
-    ketones: {
-      type: String,
-    },
-    bilirubin: {
-      type: String,
-    },
-    blood: {
-      type: String,
-    },
-    leukocyteEsterase: {
-      type: String,
-    },
-    nitrite: {
-      type: String,
-    },
-    microscopicExamination: {
-      type: String,
-    },
-    fastingBloodSugar: {
-      type: String,
-    },
-    postPrandialBloodSugar: {
-      type: String,
-    },
-    randomBloodSugar: {
-      type: String,
-    },
-    hba1c: {
-      type: String,
-    },
-    oralGlucoseToleranceTest: {
-      type: String,
-    },
-    fructosamine: {
-      type: String,
-    },
-    cPeptideTest: {
-      type: String,
-    },
-    insulinLevel: {
-      type: String,
-    },
-    urineKetones: {
-      type: String,
-    },
+  color: {
+    type: String,
+  },
+  appearance: {
+    type: String,
+  },
+  pHLevel: {
+    type: String,
+  },
+  specificGravity: {
+    type: String,
+  },
+  protein: {
+    type: String,
+  },
+  glucose: {
+    type: String,
+  },
+  ketones: {
+    type: String,
+  },
+  bilirubin: {
+    type: String,
+  },
+  blood: {
+    type: String,
+  },
+  leukocyteEsterase: {
+    type: String,
+  },
+  nitrite: {
+    type: String,
+  },
+  microscopicExamination: {
+    type: String,
+  },
+  fastingBloodSugar: {
+    type: String,
+  },
+  postPrandialBloodSugar: {
+    type: String,
+  },
+  randomBloodSugar: {
+    type: String,
+  },
+  hba1c: {
+    type: String,
+  },
+  oralGlucoseToleranceTest: {
+    type: String,
+  },
+  fructosamine: {
+    type: String,
+  },
+  cPeptideTest: {
+    type: String,
+  },
+  insulinLevel: {
+    type: String,
+  },
+  urineKetones: {
+    type: String,
+  },
 
-    systolicPressure: {
-      type: String,
-    },
-    diastolicPressure: {
-      type: String,
-    },
-    meanArterialPressure: {
-      type: String,
-    },
-    pulsePressure: {
-      type: String,
-    },
+  systolicPressure: {
+    type: String,
+  },
+  diastolicPressure: {
+    type: String,
+  },
+  meanArterialPressure: {
+    type: String,
+  },
+  pulsePressure: {
+    type: String,
+  },
 });
 module.exports = mongoose.model("patients", Patients);

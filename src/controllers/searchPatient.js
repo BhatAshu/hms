@@ -3,17 +3,17 @@ const router = express.Router();
 const userModel = require("../models/patient");
 const constant = require("../config/constants");
 
-router.get("/:firstname", async (req, res) => {
+router.get("/:username", async (req, res) => {
   try {
-    const firstName = req.params.firstname;
+    const username = req.params.username;
     const patients = await userModel.find({
-      firstname: { $regex: firstName, $options: "i" }, // $options: "i" for case-insensitive
+      username: { $regex: username, $options: "i" }, // $options: "i" for case-insensitive
     });
 
     const transformedPatients = patients.map((patient) => {
       return {
         id: patient._id,
-        firstname: patient.firstname,
+        username: patient.username,
         lastname: patient.lastname,
         email: patient.email,
         phone: patient.phone,

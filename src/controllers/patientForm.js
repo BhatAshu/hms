@@ -1,70 +1,45 @@
-// // routes/patient.js
-
 const express = require("express");
 const router = express.Router();
 const Patient = require("../models/patient");
+const authenticate = require("../middleware/authentication");
 
-// Route for patient registration
-router.post("/", async (req, res) => {
+router.post("/",authenticate, async (req, res) => {
   try {
     const {
       username,
       email,
-      phone,
       gender,
+      dateofbirth,
+      phone,
       age,
+      department,
       chiefcomplaint,
       bloodgroup,
-      timeofregistration,
-      sugarlevel,
-      bloodpressure,
-      message,
+      date,
       address,
-      doctor,
-      doctorName,
-      password,
-      patientId,
-      status,
-      prescribe,
-      testtype,
     } = req.body;
-
-    // Check if the patient already exists based on the email
+    console.log(req.user);
     const existingPatient = await Patient.findOne({ email });
     if (existingPatient) {
       return res
         .status(400)
         .json({ error: "Patient with the same email already exists" });
     }
-
-    // Create a new patient record
-
     
     const patient = new Patient({
       username,
       email,
-      phone,
       gender,
+      dateofbirth,
+      phone,
       age,
+      department,
       chiefcomplaint,
       bloodgroup,
-      timeofregistration,
-      sugarlevel,
-      bloodpressure,
-      message,
+      date,
       address,
-      doctor,
-      doctorName,
-      password,
-      patientId,
-      status,
-      prescribe,
-      testtype,
     });
-
-    // Save the patient record to the database
     await patient.save();
-
     res.status(201).json({ message: "Patient registered successfully", patient });
   } catch (error) {
     console.error("Error registering patient:", error);

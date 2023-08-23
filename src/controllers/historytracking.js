@@ -13,19 +13,18 @@ router.get("/:id", async (req, res) => {
 
     const patientDetails = {
       id: patient._id,
-      firstname: patient.firstname,
-      lastname: patient.lastname,
+      username: patient.username,
       email: patient.email,
       phone: patient.phone,
       gender: patient.gender,
       age: patient.age,
-      // chiefcomplaint: patient.chiefcomplaint,
+      date: patient.date,
+      chiefcomplaint: patient.chiefcomplaint,
       bloodgroup: patient.bloodgroup,
-      // timeofregistration: patient.timeofregistration,
-      // sugarlevel: patient.sugarlevel,
-      // bloodpressure: patient.bloodpressure,
-      // message: patient.message,
+      message: patient.message,
       address: patient.address,
+      doctorId: patient.doctor ? patient.doctor._id : null,
+      doctorName: patient.doctorName,
     };
 
     return res.status(200).json({ patient: patientDetails });

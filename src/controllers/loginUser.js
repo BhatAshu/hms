@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const userModel = require("../models/user");
+const userModel = require("../models/patient");
 const bcrypt=require("bcrypt");
 const jwt=require("jsonwebtoken");
 require("dotenv").config();
@@ -19,7 +19,7 @@ router.post("/",async(req,res)=>{
 				{user_id:user._id,email:user.email},
 				process.env.SECRET_KEY,
 			);
-			return res.status(200).send({access_token:token,user_id: user._id,firstname:user.firstname,lastname:user.lastname,email:user.email,phone:user.phone,gender:user.gender,bloodgroup:user.bloodgroup});
+			return res.status(200).send({access_token:token,user_id: user._id,username:user.username,email:user.email,phone:user.phone,gender:user.gender,bloodgroup:user.bloodgroup});
 		}else{
 			return res.status(201).send("email and password not match");
 		}

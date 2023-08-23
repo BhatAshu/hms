@@ -23,7 +23,7 @@ const isValidObjectId = (req, res, next) => {
 router.post("/", authenticate, isValidObjectId,async (req, res) => {
   try {
    
-    const { firstname,lastname, email, phone, gender, age, chiefcomplaint, bloodgroup, timeofregistration, sugarlevel, bloodpressure, address, message,doctorId,status,prescribe } = req.body;
+    const { username, email, phone, gender, age, chiefcomplaint, bloodgroup, timeofregistration, sugarlevel, bloodpressure, address, message,doctorId,status,prescribe } = req.body;
 
    
     const doctor = await docModel.findById(doctorId);
@@ -34,8 +34,7 @@ router.post("/", authenticate, isValidObjectId,async (req, res) => {
     
 
     const data = await userModel.create({
-      firstname: firstname,
-      lastname: lastname,
+      username: username,
       email: email,
       phone: phone,
       gender: gender,
@@ -55,8 +54,7 @@ router.post("/", authenticate, isValidObjectId,async (req, res) => {
 
     const responseData = {
       id: data.id,
-      firstname: data.firstname,
-      lastname: data.lastname,
+      username: data.username,
       email: data.email,
       phone: data.phone,
       gender: data.gender,

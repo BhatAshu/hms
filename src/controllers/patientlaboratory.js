@@ -1,28 +1,21 @@
-const express = require('express');
-const patientModel = require('../models/patient');
-const authenticate = require('../middleware/authentication');
-const WebSocket = require('ws');
+const express = require("express");
+const patientModel = require("../models/patient");
+const authenticate = require("../middleware/authentication");
+const WebSocket = require("ws");
 
 const router = express.Router();
-
-// Create an HTTP server
-const server = require('http').createServer();
-
-// Create a WebSocket server using the HTTP server
+const server = require("http").createServer();
 const wss = new WebSocket.Server({ server });
-
-// Store connected clients
 const clients = new Set();
 
-wss.on('connection', (ws) => {
+wss.on("connection", (ws) => {
   clients.add(ws);
 
-  ws.on('close', () => {
+  ws.on("close", () => {
     clients.delete(ws);
   });
 });
-
-router.put('/:id', authenticate, async (req, res) => {
+router.put("/:id", authenticate, async (req, res) => {
   try {
     const id = req.params.id;
     const {
@@ -50,10 +43,9 @@ router.put('/:id', authenticate, async (req, res) => {
 
     await patientModel.findByIdAndUpdate(id, updatedData);
     const data = await patientModel.findById(id);
-
     // Notify connected clients about the data update
     const notification = {
-      type: 'data_updated',
+      type: "data_updated",
       patientId: id,
     };
 
@@ -63,7 +55,7 @@ router.put('/:id', authenticate, async (req, res) => {
       }
     });
 
-    return res.status(200).send(updatedData);
+    return res.status(200).send(data);
   } catch (error) {
     return res.status(500).send(error.stack);
   }
