@@ -154,5 +154,11 @@ router.use("/list_dermatology",listdermatology);
 const reporttracking=require("./historytracking");
 router.use("/report_tracking",reporttracking);
 
+const addbilling=require("./addBilling");
+router.use("/add_billing",addbilling);
+
+const listbilling=require("./listBilling");
+router.use("/list_billing",listbilling);
+
 
 module.exports = router;

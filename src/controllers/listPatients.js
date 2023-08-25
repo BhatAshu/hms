@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const userModel = require("../models/user");
+const userModel = require("../models/patient");
 const docModel = require("../models/login");
 const constants = require("../config/constants");
 const authenticate = require("../middleware/authentication")
@@ -26,7 +26,8 @@ router.get("/", authenticate, async (req, res) => {
         doctorId: item.doctor ? item.doctor._id : null,
         doctorName: item.doctorName,
         status: item.status,
-        prescribe: item.prescribe,
+        message: item.message,
+        description: item.description,
       };
     });
     return res.status(200).send(data);

@@ -213,5 +213,17 @@ const Patients = mongoose.Schema({
   pulsePressure: {
     type: String,
   },
+  time:{
+    type:String,
+  },
+  cost:{
+    type:String,
+  },
+  consultationFee:{
+    type:String,
+  },
+  laboratoryFee:{
+    type:String,
+  },
 });
 module.exports = mongoose.model("patients", Patients);

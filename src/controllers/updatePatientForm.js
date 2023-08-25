@@ -17,6 +17,7 @@ router.put("/:id", authenticate, async (req, res) => {
       age,
       department,
       chiefcomplaint,
+      date,
       bloodgroup,
       address,
     } = req.body;
@@ -36,6 +37,7 @@ router.put("/:id", authenticate, async (req, res) => {
       age: age,
       department: department,
       chiefcomplaint: chiefcomplaint,
+      date: date,
       bloodgroup: bloodgroup,
       address: address,
     };
