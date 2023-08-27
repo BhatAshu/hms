@@ -28,7 +28,6 @@ const accounts = mongoose.Schema({
   },
   specialist:{
     type:String,
-    require:true,
   },
   image: {
     data: Buffer,
