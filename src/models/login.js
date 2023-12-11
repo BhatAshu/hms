@@ -34,5 +34,12 @@ const accounts = mongoose.Schema({
     type: String,
     required: false,
   },
+  appointments: [
+    {
+      date: String, 
+      time: String,
+      timeofregistration: String,
+    },
+  ],
 });
 module.exports = mongoose.model("accounts", accounts);

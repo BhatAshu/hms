@@ -20,7 +20,7 @@ router.get("/", authenticate, async (req, res) => {
         bloodgroup: item.bloodgroup,
         sugarlevel: item.sugarlevel,
         bloodpressure: item.bloodpressure,
-        timeofregistration: item.timeofregistration,
+        time: item.time,
         address:item.address,
         message:item.message,
         doctorId: item.doctor ? item.doctor._id : null,

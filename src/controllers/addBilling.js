@@ -12,8 +12,8 @@ router.put("/:id", async (req, res) => {
       phone,
       gender,
       address,
-      date,
-      time,
+      collecteddate,
+      timeofregistration,
       consultationFee,
       laboratoryFee,
     } = req.body;
@@ -24,8 +24,8 @@ router.put("/:id", async (req, res) => {
       phone: phone,
       gender: gender,
       address: address,
-      date: date,
-      time: time,
+      collecteddate: collecteddate,
+      timeofregistration: timeofregistration,
       consultationFee: consultationFee,
       laboratoryFee: laboratoryFee,
       // Add other fields you want to update here
@@ -51,8 +51,8 @@ router.put("/:id", async (req, res) => {
     doc.text(`Phone: ${phone}`);
     doc.text(`Gender: ${gender}`);
     doc.text(`Address: ${address}`);
-    doc.text(`Date: ${date}`);
-    doc.text(`Time: ${time}`);
+    doc.text(`Date: ${collecteddate}`);
+    doc.text(`Time: ${timeofregistration}`);
     doc.text(`ConsultationFee: ${consultationFee}`);
     doc.text(`LaboratoryFee: ${laboratoryFee}`);
     doc.end();

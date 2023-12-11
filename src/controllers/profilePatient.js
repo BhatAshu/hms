@@ -13,8 +13,7 @@ router.get("/:id", async (req, res) => {
 
     const patientDetails = {
       id: patient._id,
-      firstname: patient.firstname,
-      lastname: patient.lastname,
+      username: patient.username,
       email: patient.email,
       phone: patient.phone,
       gender: patient.gender,

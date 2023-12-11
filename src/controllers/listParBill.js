@@ -54,7 +54,7 @@ doc.moveDown(1);
     doc.text(`Email: ${patient.email}`, 50, doc.y);
     doc.text(`Phone: ${patient.phone}`, 50, doc.y);
     doc.text(`Gender: ${patient.gender}`, 50, doc.y);
-    // doc.text(`Address: ${patient.address}`, 50, doc.y);
+    doc.text(`Address: ${patient.address}`, 50, doc.y);
     
 
     const collectedDateText = `Date: ${currentDate}`;

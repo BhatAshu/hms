@@ -160,5 +160,8 @@ router.use("/add_billing",addbilling);
 const listbilling=require("./listBilling");
 router.use("/list_billing",listbilling);
 
+const docavailable=require("./docAvailable");
+router.use("/doc_available",docavailable);
+
 
 module.exports = router;

@@ -46,7 +46,7 @@ router.get('/:id', async (req, res) => {
 
     const rowHeight = 20;
     const rowData = [
-      ['Report ID', patient._id],
+      // ['Report ID', patient._id],
       ['Patient Name', patient.username],
       ['Email', patient.email],
       ['Gender', patient.gender],
@@ -54,11 +54,9 @@ router.get('/:id', async (req, res) => {
       ['Age', patient.age],
       ['Blood Group', patient.bloodgroup],
       ['Chief Complaint', patient.chiefcomplaint],
-      ['Sugar Level', patient.sugarlevel],
-      ['Blood Pressure', patient.bloodpressure],
-      ['Address', patient.address],
+      // ['Address', patient.address],
       ['Doctor Name', patient.doctorName],
-      ['Medicine', patient.medicine],
+      ['Medicine', patient.message],
       // Add more fields here
     ];
 

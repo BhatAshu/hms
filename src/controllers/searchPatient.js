@@ -7,7 +7,7 @@ router.get("/:username", async (req, res) => {
   try {
     const username = req.params.username;
     const patients = await userModel.find({
-      username: { $regex: username, $options: "i" }, // $options: "i" for case-insensitive
+      username: { $regex: username, $options: "i" }, 
     });
 
     const transformedPatients = patients.map((patient) => {
